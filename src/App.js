@@ -7,6 +7,7 @@ function App() {
 			<Switch>
 				<Route path="/">
 					<h1>En början</h1>
+					<button onClick={handleCreateUser}>Registrera dig</button>
 				</Route>
 			</Switch>
 		</div>
