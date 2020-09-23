@@ -32,6 +32,7 @@ function App() {
 	const [loginEmail, setLoginEmail] = useState("")
 	const [loginPassword, setLoginPassword] = useState("")
 
+	const [customerList, setCustomerList] = useState("")
 	//Skapa ny instans av klassen UserKit
 	const userKit = new UserKit()
 
@@ -112,9 +113,18 @@ function App() {
 			.then((res) => res.json())
 			.then((data) => {
 				userKit.setToken(data.token)
-				console.log(loginEmail, loginPassword)
-				console.log(data)
+				// console.log(loginEmail, loginPassword)
+				// console.log(data)
 				history.push("/home")
+			})
+	}
+	//SE BEFINTLIGA KUNDER
+	function handleGetCustomerList() {
+		userKit
+			.getCustomerList()
+			.then((res) => res.json())
+			.then((data) => {
+				setCustomerList(data.results)
 			})
 	}
 
@@ -126,6 +136,7 @@ function App() {
 						<h2>Välkommen Namn Namnsson</h2>
 						<div>
 							<h4>Mina kunder</h4>
+							<button onClick={handleGetCustomerList}>Hämta kunder</button>
 						</div>
 						<div>
 							<h4>Lägg till en ny kund</h4>

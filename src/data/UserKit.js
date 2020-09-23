@@ -63,6 +63,24 @@ export default class {
 	getToken() {
 		return localStorage.getItem("USER_TOKEN")
 	}
+
+	async getCustomerList() {
+		const url = `${ROOT_URL}api/v1/customers`
+		return fetch(url, {
+			headers: this.getPrivateHeaders(),
+		})
+	}
+
+	// async addCustomer() {
+	//   const url = `${ROOT_URL}api/v1/customers`
+	//   const payload = {
+	//     name: Katarina Svensson,
+	//     adress: [{
+	//       {organisation: 1}
+	//     }]
+	//   }
+	// }
+
 	//Genom att skriva ut header (Content-Type) med en funktion minskar risken att vi skriver fel (om vi skriver fler det gånger)
 	getPublicHeaders() {
 		return {
