@@ -43,6 +43,26 @@ export default class {
 		})
 	}
 
+	async login(email, password) {
+		const url = `${ROOT_URL}api-token-auth/`
+		const payload = {
+			email,
+			password,
+		}
+		return fetch(url, {
+			method: "POST",
+			headers: this.getPublicHeaders(),
+			body: JSON.stringify(payload),
+		})
+	}
+
+	setToken(token) {
+		localStorage.setItem("USER_TOKEN", token)
+	}
+
+	getToken() {
+		return localStorage.getItem("USER_TOKEN")
+	}
 	//Genom att skriva ut header (Content-Type) med en funktion minskar risken att vi skriver fel (om vi skriver fler det gånger)
 	getPublicHeaders() {
 		return {

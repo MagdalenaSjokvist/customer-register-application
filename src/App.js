@@ -8,6 +8,12 @@ const InputLabel = styled.label`
 	flex-direction: column;
 `
 
+// const appContainer = styled.main`
+// 	box-sizing: border-box;
+// 	margin: 0 auto;
+// 	background-color: #6daacd;
+// `
+
 function App() {
 	const [firstName, setFirstName] = useState("")
 	const [lastName, setLastName] = useState("")
@@ -75,17 +81,17 @@ function App() {
 				organisationKind
 			)
 			.then(
+				setConfirmationMessage(
+					"Tack för din registrering! Du får strax ett mejl till din registrerade e-postadress. Klicka på länken i mejlet för att aktivera ditt konto."
+				)
+			)
+			.then(
 				setFirstName(""),
 				setLastName(""),
 				setEmail(""),
 				setPassword(""),
 				setOrganisationName(""),
 				setOrganisationKind("")
-			)
-			.then(
-				setConfirmationMessage(
-					"Tack för din registrering! Du får strax ett mejl till din registrerade e-postadress. Klicka på länken i mejlet för att aktivera ditt konto."
-				)
 			)
 		// .then(history.push("/login"))
 	}
@@ -101,12 +107,32 @@ function App() {
 
 	//LOGGA IN
 	function handleLogin() {
-		console.log("handleLogin() körs")
+		userKit
+			.login(loginEmail, loginPassword)
+			.then((res) => res.json())
+			.then((data) => {
+				userKit.setToken(data.token)
+				console.log(loginEmail, loginPassword)
+				console.log(data)
+				history.push("/home")
+			})
 	}
 
 	return (
 		<div>
 			<Switch>
+				<Route path="/home">
+					<div>
+						<h2>Välkommen Namn Namnsson</h2>
+						<div>
+							<h4>Mina kunder</h4>
+						</div>
+						<div>
+							<h4>Lägg till en ny kund</h4>
+							<button>Lägg till</button>
+						</div>
+					</div>
+				</Route>
 				<Route path="/login">
 					<div>
 						{/* Om uid och token finns - rendera ut första diven, annars rendera ut den andra diven */}
