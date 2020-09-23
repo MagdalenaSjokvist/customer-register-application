@@ -6,7 +6,7 @@ const LOGIN_URL = `${ROOT_URL}api-token-auth/`
 // `${ROOT_URL}auth/users/activate/`
 
 export default class {
-	async register(
+	async registerAccount(
 		firstName,
 		lastName,
 		email,
@@ -22,6 +22,19 @@ export default class {
 			password,
 			organisationName,
 			organisationKind,
+		}
+		return fetch(url, {
+			method: "POST",
+			headers: this.getPublicHeaders(),
+			body: JSON.stringify(payload),
+		})
+	}
+
+	async activateAccount(uid, token) {
+		const url = `${ROOT_URL}auth/users/activate/`
+		const payload = {
+			uid,
+			token,
 		}
 		return fetch(url, {
 			method: "POST",
