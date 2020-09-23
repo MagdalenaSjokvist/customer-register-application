@@ -137,6 +137,10 @@ function App() {
 						<div>
 							<h4>Mina kunder</h4>
 							<button onClick={handleGetCustomerList}>Hämta kunder</button>
+							{customerList &&
+								customerList.map((customer, index) => {
+									return <p key={index}>{customer.name}</p>
+								})}
 						</div>
 						<div>
 							<h4>Lägg till en ny kund</h4>
