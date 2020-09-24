@@ -4,6 +4,9 @@ const AUTH_URL = `${ROOT_URL}auth/`
 const LOGIN_URL = `${ROOT_URL}api-token-auth/`
 // `${ROOT_URL}api/v1/customers`
 // `${ROOT_URL}auth/users/activate/`
+//  //om du vill ha en specifik customer så kan du använda ID:et
+//som API:et skapar som :id och hämta aktuella med `${ROOT_URL}api/v1/customers/${id}/`
+// `${ROOT_URL}api/v1/customers/${id}/`
 
 export default class {
 	async registerAccount(
@@ -63,44 +66,17 @@ export default class {
 		})
 	}
 
-	async createCustomer() {
-		const url = `${API_URL}customers`
-		const payload = {
-			name: "Skåne AB",
-			organisationNr: "555111-1111",
-			vatNr: "SE3000040000",
-			reference: "Rushe Berisha",
-			paymentTerm: "30",
-			website: "https://www.google.se/",
-			email: "bolaget@mail.se",
-			phoneNumber: "0700123456",
-		}
-		return fetch(url, {
-			method: "POST",
-			headers: this.getPrivateHeaders(),
-			body: JSON.stringify(payload),
-		})
-	}
-	// async createCustomer(
-	// 	name,
-	// 	organisationNr,
-	// 	vatNr,
-	// 	reference,
-	// 	paymentTerm,
-	// 	website,
-	// 	email,
-	// 	phoneNumber
-	// ) {
+	// async createCustomer() {
 	// 	const url = `${API_URL}customers`
 	// 	const payload = {
-	// 		name,
-	// 		organisationNr,
-	// 		vatNr,
-	// 		reference,
-	// 		paymentTerm,
-	// 		website,
-	// 		email,
-	// 		phoneNumber,
+	// 		name: "Skåne AB",
+	// 		organisationNr: "555111-1111",
+	// 		vatNr: "SE3000040000",
+	// 		reference: "Rushe Berisha",
+	// 		paymentTerm: "30",
+	// 		website: "https://www.google.se/",
+	// 		email: "bolaget@mail.se",
+	// 		phoneNumber: "0700123456",
 	// 	}
 	// 	return fetch(url, {
 	// 		method: "POST",
@@ -108,6 +84,34 @@ export default class {
 	// 		body: JSON.stringify(payload),
 	// 	})
 	// }
+
+	async createCustomer(
+		name,
+		organisationNr,
+		vatNr,
+		reference,
+		paymentTerm,
+		website,
+		email,
+		phoneNumber
+	) {
+		const url = `${API_URL}customers`
+		const payload = {
+			name,
+			organisationNr,
+			vatNr,
+			reference,
+			paymentTerm,
+			website,
+			email,
+			phoneNumber,
+		}
+		return fetch(url, {
+			method: "POST",
+			headers: this.getPrivateHeaders(),
+			body: JSON.stringify(payload),
+		})
+	}
 
 	setToken(token) {
 		localStorage.setItem("USER_TOKEN", token)
