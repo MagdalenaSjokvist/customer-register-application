@@ -12,6 +12,7 @@ const AppContainer = styled.div`
 	height: 100vh;
 	display: flex;
 	justify-content: center;
+	min-height: 800px;
 `
 
 function App() {
