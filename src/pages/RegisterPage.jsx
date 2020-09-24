@@ -5,6 +5,8 @@ import styled from "styled-components"
 const InputLabel = styled.label`
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 5px;
+	max-width: 500px;
 `
 export default function RegisterPage() {
 	const [firstName, setFirstName] = useState("")
