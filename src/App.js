@@ -8,31 +8,32 @@ import UserHomePage from "./pages/UserHomePage"
 
 const AppContainer = styled.div`
 	padding: 2rem;
-	background: rgba(109, 170, 205);
-	height: 100vh;
+	background: #c0e3f0;
 	display: flex;
 	justify-content: center;
-	min-height: 800px;
+	height: 100%;
 `
 
 function App() {
 	return (
-		<AppContainer>
+		<div>
 			<GlobalStyles />
-			<Switch>
-				<Route path="/home">
-					<UserHomePage />
-				</Route>
+			<AppContainer>
+				<Switch>
+					<Route path="/home">
+						<UserHomePage />
+					</Route>
 
-				<Route path="/login">
-					<LoginPage />
-				</Route>
+					<Route path="/login">
+						<LoginPage />
+					</Route>
 
-				<Route path="/">
-					<RegisterPage />
-				</Route>
-			</Switch>
-		</AppContainer>
+					<Route path="/">
+						<RegisterPage />
+					</Route>
+				</Switch>
+			</AppContainer>
+		</div>
 	)
 }
 
