@@ -18,22 +18,39 @@ h2 {
 }
 
 h3 {
-  
+  font-size: 0.9rem;
+  margin: 2vh 0;
 }
 
 button {
   padding: 0.5rem;
-  margin-top: 1rem; 
+  max-width: 150px;
+  margin-top: 0.5rem; 
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background: #3B628C;
 }
 
 label{
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 input {
-  height: 30px;
+  height: 32px;
   width: 45vw;
   min-width: 200px;
-  margin: 0.2rem 0;
+  margin: 0.2rem 0 0.5rem 0 ;
+  border: none;
+  border-radius: 3px;
+  background: white;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
+
+th {
+  font-size: 0.6rem;
+  padding-right: 2rem;
+}
+
 `
