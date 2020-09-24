@@ -2,11 +2,16 @@ import React, { useState } from "react"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
 
+const RegisterForm = styled.form`
+	display: flex;
+	flex-direction: column;
+`
+
 const InputLabel = styled.label`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 5px;
-	max-width: 500px;
+	max-width: 700px;
 `
 export default function RegisterPage() {
 	const [firstName, setFirstName] = useState("")
@@ -82,9 +87,11 @@ export default function RegisterPage() {
 	return (
 		<div>
 			<h1>Registrera dig</h1>
-			<p>{confirmationMessage}</p>
-			{renderInputFields(inputFieldsArray)}
-			<button onClick={handleRegisterAccount}>Registrera dig</button>
+			<RegisterForm>
+				<p>{confirmationMessage}</p>
+				{renderInputFields(inputFieldsArray)}
+				<button onClick={handleRegisterAccount}>Registrera dig</button>
+			</RegisterForm>
 		</div>
 	)
 }
