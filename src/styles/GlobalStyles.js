@@ -8,6 +8,11 @@ export const GlobalStyles = createGlobalStyle`
 
 }
 
+h1 {
+  font-size: 34px;
+  margin: 2vh 0 3vh 0;
+}
+
 button {
   padding: 0.5rem;
   margin-top: 1.5rem; 
