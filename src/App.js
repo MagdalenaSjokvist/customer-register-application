@@ -128,6 +128,17 @@ function App() {
 			})
 	}
 
+	//SKAPA NY KUND
+	function handleCreateCustomer() {
+		userKit
+			.createCustomer()
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data.email)
+				handleGetCustomerList()
+			})
+	}
+
 	return (
 		<div>
 			<Switch>
@@ -137,14 +148,17 @@ function App() {
 						<div>
 							<h4>Mina kunder</h4>
 							<button onClick={handleGetCustomerList}>Hämta kunder</button>
-							{customerList &&
-								customerList.map((customer, index) => {
-									return <p key={index}>{customer.name}</p>
-								})}
+							<ul>
+								<li>Test</li>
+								{customerList &&
+									customerList.map((customerItem, index) => {
+										return <li key={index}>{customerItem.name}</li>
+									})}
+							</ul>
 						</div>
 						<div>
 							<h4>Lägg till en ny kund</h4>
-							<button>Lägg till</button>
+							<button onClick={handleCreateCustomer}>Lägg till</button>
 						</div>
 					</div>
 				</Route>
