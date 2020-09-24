@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  padding: 0.3rem;
+  padding: 0.4rem;
 }
 
 .appContainer {
@@ -13,6 +13,8 @@ export const GlobalStyles = createGlobalStyle`
 
 button {
   padding: 0.5rem;
-  margin-right: 1em;
+  margin-left: 0.4rem;
+  margin-top: 0.5rem; 
+  
 }
 `
