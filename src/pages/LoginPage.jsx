@@ -3,11 +3,15 @@ import { useHistory } from "react-router-dom"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
 
+const LoginContainer = styled.div`
+	width: 35vw;
+	min-width: 200px;
+`
 const InputLabel = styled.label`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 5px;
-	max-width: 700px;
+	width: 100%;
 `
 export default function LoginPage() {
 	const history = useHistory()
@@ -57,7 +61,7 @@ export default function LoginPage() {
 					<button onClick={handleActivateAccount}>Aktivera ditt konto</button>
 				</div>
 			) : (
-				<div>
+				<LoginContainer>
 					<h1>Logga in</h1>
 					<InputLabel>
 						E-post
@@ -78,7 +82,7 @@ export default function LoginPage() {
 						/>
 					</InputLabel>
 					<button onClick={handleLogin}>Logga in</button>
-				</div>
+				</LoginContainer>
 			)}
 		</div>
 	)
