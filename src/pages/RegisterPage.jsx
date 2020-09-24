@@ -11,7 +11,8 @@ const InputLabel = styled.label`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 5px;
-	max-width: 700px;
+	width: 35vw;
+	min-width: 200px;
 `
 export default function RegisterPage() {
 	const [firstName, setFirstName] = useState("")
@@ -23,6 +24,21 @@ export default function RegisterPage() {
 	const [confirmationMessage, setConfirmationMessage] = useState("")
 	const userKit = new UserKit()
 
+	//RENDERA UT INPUTFÄLT FÖR REGISTRERING
+	const inputFieldsArray = [
+		["Förnamn", "text", "", firstName, setFirstName],
+		["Efternamn", "text", "", lastName, setLastName],
+		["E-post", "email", "Ex. info@mail.se", email, setEmail],
+		["Lösenord", "password", "Minst 8 tecken", password, setPassword],
+		["Organisationsnamn", "text", "", organisationName, setOrganisationName],
+		[
+			"Organisationstyp",
+			"text",
+			"Välj 0, 1 eller 2",
+			organisationKind,
+			setOrganisationKind,
+		],
+	]
 	const renderInputFields = (inputFieldsArray) => {
 		// console.log(inputFieldsArray)
 		return inputFieldsArray.map((inputField, index) => {
@@ -41,21 +57,6 @@ export default function RegisterPage() {
 			)
 		})
 	}
-
-	const inputFieldsArray = [
-		["Förnamn", "text", "", firstName, setFirstName],
-		["Efternamn", "text", "", lastName, setLastName],
-		["E-post", "email", "Ex. info@mail.se", email, setEmail],
-		["Lösenord", "password", "Minst 8 tecken", password, setPassword],
-		["Organisationsnamn", "text", "", organisationName, setOrganisationName],
-		[
-			"Organisationstyp",
-			"text",
-			"Välj 0, 1 eller 2",
-			organisationKind,
-			setOrganisationKind,
-		],
-	]
 
 	//REGISTRERA KONTO
 	function handleRegisterAccount() {
