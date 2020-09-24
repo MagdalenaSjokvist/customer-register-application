@@ -1,7 +1,14 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import UserKit from "../data/UserKit"
+import styled from "styled-components"
 
+const InputLabel = styled.label`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+	max-width: 700px;
+`
 export default function LoginPage() {
 	const history = useHistory()
 	const urlParameters = new URLSearchParams(history.location.search) // Use URL Search Params to parse the query parameters from the url
@@ -52,18 +59,24 @@ export default function LoginPage() {
 			) : (
 				<div>
 					<h1>Logga in</h1>
-					<input
-						type="email"
-						placeholder="Ex. info@mail.se"
-						value={loginEmail}
-						onChange={(e) => setLoginEmail(e.target.value)}
-					/>
-					<input
-						type="password"
-						placeholder="Lösenord"
-						value={loginPassword}
-						onChange={(e) => setLoginPassword(e.target.value)}
-					/>
+					<InputLabel>
+						E-post
+						<input
+							type="email"
+							placeholder="Ex. info@mail.se"
+							value={loginEmail}
+							onChange={(e) => setLoginEmail(e.target.value)}
+						/>
+					</InputLabel>
+					<InputLabel>
+						Lösenord
+						<input
+							type="password"
+							placeholder="Lösenord"
+							value={loginPassword}
+							onChange={(e) => setLoginPassword(e.target.value)}
+						/>
+					</InputLabel>
 					<button onClick={handleLogin}>Logga in</button>
 				</div>
 			)}
