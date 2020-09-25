@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
 
@@ -90,6 +90,10 @@ export default function UserHomePage() {
 			})
 	}
 
+	useEffect(() => {
+		handleGetCustomerList()
+	}, [])
+
 	//SKAPA NY KUND
 	function handleCreateCustomer() {
 		userKit
@@ -120,13 +124,15 @@ export default function UserHomePage() {
 			<h2>Välkommen Namn Namnsson</h2>
 			<CustomersContainer>
 				<h3>Mina kunder</h3>
-				<button onClick={handleGetCustomerList}>Hämta kunder</button>
+				{/* <button onClick={handleGetCustomerList}>Hämta kunder</button> */}
 				<table>
 					<thead>
-						<th>Namn</th>
-						<th>Org.nr</th>
-						<th>Referens</th>
-						<th>Läs mer</th>
+						<tr>
+							<th>Namn</th>
+							<th>Org.nr</th>
+							<th>Referens</th>
+							<th>Läs mer</th>
+						</tr>
 					</thead>
 					<tbody>
 						{customerList &&
