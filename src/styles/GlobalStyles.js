@@ -15,11 +15,14 @@ h1 {
 h2 {
   font-size: 1.5rem;
   margin: 2vh 0 3vh 0;
+  text-align: center;
+
 }
 
 h3 {
   font-size: 0.9rem;
   margin: 2vh 0;
+
 }
 
 button {
@@ -56,10 +59,10 @@ th{
 }
 
 thead{
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   background-color: #3B628C;
   color: white;
   height: 40px;
@@ -68,13 +71,14 @@ thead{
   border-radius: 4px;
   font-size: small;
   padding: 1rem;
+  border: none;
 }
 
 tr {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   height: 30px;
   width: 55vw;
   min-width: 400px;
