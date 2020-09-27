@@ -3,9 +3,10 @@ import { useHistory } from "react-router-dom"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
 
-const LoginContainer = styled.div`
+const LoginWrapper = styled.div`
 	width: 35vw;
 	min-width: 200px;
+	height: 100vh;
 `
 const InputLabel = styled.label`
 	display: flex;
@@ -61,7 +62,7 @@ export default function LoginPage() {
 					<button onClick={handleActivateAccount}>Aktivera ditt konto</button>
 				</div>
 			) : (
-				<LoginContainer>
+				<LoginWrapper>
 					<h1>Logga in</h1>
 					<InputLabel>
 						E-post
@@ -82,7 +83,7 @@ export default function LoginPage() {
 						/>
 					</InputLabel>
 					<button onClick={handleLogin}>Logga in</button>
-				</LoginContainer>
+				</LoginWrapper>
 			)}
 		</div>
 	)
