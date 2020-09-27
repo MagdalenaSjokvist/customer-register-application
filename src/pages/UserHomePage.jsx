@@ -21,6 +21,11 @@ const CustomersContainer = styled.div`
 	border-radius: 5px;
 `
 
+const CustomerButton = styled.button`
+	margin: 5px;
+	width: 40px;
+`
+
 export default function UserHomePage() {
 	const { activeUser } = useContext(UserContext)
 	const [customerList, setCustomerList] = useState("")
@@ -121,6 +126,12 @@ export default function UserHomePage() {
 				setPhoneNumber("")
 			)
 	}
+
+	//TA BORT KUND
+	function handleDeleteCustomer() {
+		console.log("Delete customer")
+	}
+
 	return (
 		<div>
 			<h2>
@@ -134,7 +145,7 @@ export default function UserHomePage() {
 							<th>Namn</th>
 							<th>Org.nr</th>
 							<th>Referens</th>
-							<th>Läs mer</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -146,7 +157,14 @@ export default function UserHomePage() {
 										<td>{customerItem.organisationNr}</td>
 										<td>{customerItem.reference}</td>
 										<td>
-											<button>Läs mer</button>
+											<Link to={`/customer/${customerItem.id}`}>
+												<CustomerButton>
+													<i class="fa fa-info-circle"></i>
+												</CustomerButton>
+											</Link>
+											<CustomerButton onClick={handleDeleteCustomer}>
+												<i class="fa fa-trash-o"></i>
+											</CustomerButton>
 										</td>
 									</tr>
 								)

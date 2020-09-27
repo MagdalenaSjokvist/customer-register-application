@@ -73,25 +73,6 @@ export default class {
 		})
 	}
 
-	// async createCustomer() {
-	// 	const url = `${API_URL}customers`
-	// 	const payload = {
-	// 		name: "Skåne AB",
-	// 		organisationNr: "555111-1111",
-	// 		vatNr: "SE3000040000",
-	// 		reference: "Rushe Berisha",
-	// 		paymentTerm: "30",
-	// 		website: "https://www.google.se/",
-	// 		email: "bolaget@mail.se",
-	// 		phoneNumber: "0700123456",
-	// 	}
-	// 	return fetch(url, {
-	// 		method: "POST",
-	// 		headers: this.getPrivateHeaders(),
-	// 		body: JSON.stringify(payload),
-	// 	})
-	// }
-
 	async createCustomer(
 		name,
 		organisationNr,
@@ -117,6 +98,21 @@ export default class {
 			method: "POST",
 			headers: this.getPrivateHeaders(),
 			body: JSON.stringify(payload),
+		})
+	}
+
+	async fetchCustomerDetails(customerId) {
+		const url = `${API_URL}customers/${customerId}/`
+		return fetch(url, {
+			headers: this.getPrivateHeaders(),
+		})
+	}
+
+	async deleteCustomerDetails(customerId) {
+		const url = `${API_URL}customers/${customerId}/`
+		return fetch(url, {
+			method: "DELETE",
+			headers: this.getPrivateHeaders(),
 		})
 	}
 
