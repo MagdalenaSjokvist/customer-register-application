@@ -59,6 +59,13 @@ export default class {
 		})
 	}
 
+	async getActiveUser() {
+		const url = `${API_URL}me`
+		return fetch(url, {
+			headers: this.getPrivateHeaders(),
+		})
+	}
+
 	async getCustomerList() {
 		const url = `${API_URL}customers`
 		return fetch(url, {
