@@ -26,9 +26,10 @@ function App() {
 			<UserContext.Provider value={{ activeUser, setActiveUser }}>
 				<LayoutBasic>
 					<Switch>
-						<Route path="/customer/:id">
-							<CustomerDetailPage />
-						</Route>
+						<Route
+							path="/customer/:id"
+							render={(props) => <CustomerDetailPage {...props} />}
+						></Route>
 
 						<Route path="/home">
 							<UserHomePage />
