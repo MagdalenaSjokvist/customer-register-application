@@ -93,22 +93,22 @@ export default function LayoutBasic({ children }) {
 			<MainWrapper>{children}</MainWrapper>
 			<Footer>
 				<Logo>
-					<i class="fa fa-bug"></i>
+					<i className="fa fa-bug"></i>
 				</Logo>
 				<p>Mina företag AB</p>
 				<p>
-					<i class="fa fa-map-marker"> </i> Klippgatan 8A, Solna
+					<i className="fa fa-map-marker"> </i> Klippgatan 8A, Solna
 				</p>
 
 				<p>
 					<SocialMediaSymbol href="mailto:magdalena.sjokvist@gmail.com">
-						<i class="fa fa-envelope-o"></i>
+						<i className="fa fa-envelope-o"></i>
 					</SocialMediaSymbol>
 					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
-						<i class="fa fa-linkedin-square"></i>
+						<i className="fa fa-linkedin-square"></i>
 					</SocialMediaSymbol>
 					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
-						<i class="fa fa-facebook"></i>
+						<i className="fa fa-facebook"></i>
 					</SocialMediaSymbol>
 				</p>
 			</Footer>
