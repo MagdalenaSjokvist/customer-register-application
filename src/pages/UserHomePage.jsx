@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
+import { UserContext } from "../contexts/UserContext"
 
 const CreateCustomerForm = styled.div`
 	display: flex;
@@ -20,6 +22,7 @@ const CustomersContainer = styled.div`
 `
 
 export default function UserHomePage() {
+	const { activeUser } = useContext(UserContext)
 	const [customerList, setCustomerList] = useState("")
 
 	//State variables for creating new customer
@@ -37,7 +40,6 @@ export default function UserHomePage() {
 	const userKit = new UserKit()
 
 	//RENDERA UT INPUTFÄLT FÖR ATT SKAPA NY KUND
-
 	const inputFieldsArray = [
 		["Namn", "text", "", name, setName],
 		[
@@ -121,10 +123,11 @@ export default function UserHomePage() {
 	}
 	return (
 		<div>
-			<h2>Välkommen Namn Namnsson</h2>
+			<h2>
+				Välkommen {activeUser.firstName} {activeUser.lastName}
+			</h2>
 			<CustomersContainer>
 				<h3>Mina kunder</h3>
-				{/* <button onClick={handleGetCustomerList}>Hämta kunder</button> */}
 				<table>
 					<thead>
 						<tr>
