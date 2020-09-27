@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
   font-family: 'Poppins', sans-serif;
 }
 
+
+
 h1 {
   font-size: 1.7rem;
   margin: 2vh 0 3vh 0;
@@ -23,6 +25,11 @@ h3 {
   font-size: 0.9rem;
   margin: 2vh 0;
 
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 button {
