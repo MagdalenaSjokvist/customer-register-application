@@ -108,7 +108,7 @@ export default class {
 		})
 	}
 
-	async deleteCustomerDetails(customerId) {
+	async deleteCustomer(customerId) {
 		const url = `${API_URL}customers/${customerId}/`
 		return fetch(url, {
 			method: "DELETE",

@@ -23,7 +23,7 @@ const CustomersContainer = styled.div`
 
 const CustomerButton = styled.button`
 	margin: 5px;
-	width: 40px;
+	width: 80px;
 `
 
 export default function UserHomePage() {
@@ -130,6 +130,7 @@ export default function UserHomePage() {
 	//TA BORT KUND
 	function handleDeleteCustomer() {
 		console.log("Delete customer")
+		handleGetCustomerList()
 	}
 
 	return (
@@ -159,12 +160,13 @@ export default function UserHomePage() {
 										<td>
 											<Link to={`/customer/${customerItem.id}`}>
 												<CustomerButton>
-													<i class="fa fa-info-circle"></i>
+													{/* <i className="fa fa-info-circle"></i> Läs mer */}
+													Mer info <i className="fa fa-angle-double-right"></i>
 												</CustomerButton>
 											</Link>
-											<CustomerButton onClick={handleDeleteCustomer}>
-												<i class="fa fa-trash-o"></i>
-											</CustomerButton>
+											{/* <CustomerButton onClick={handleDeleteCustomer}>
+												<i className="fa fa-trash-o"></i>
+											</CustomerButton> */}
 										</td>
 									</tr>
 								)
