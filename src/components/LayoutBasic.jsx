@@ -22,7 +22,7 @@ const NavBar = styled.nav`
 	height: 100px;
 	color: white;
 	font-size: 12px;
-	margin-bottom: 8vh;
+	margin-bottom: 4vh;
 `
 const NavLinks = styled.div`
 	display: flex;
@@ -47,14 +47,20 @@ const Footer = styled.footer`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 150px;
-	padding: 2rem;
+	height: 180px;
+	padding: 1rem;
 	margin-top: 10vh;
 	background: #3b628c;
 	color: white;
 	font-size: 12px;
 `
-
+const SocialMediaSymbol = styled.a`
+	font-size: 24px;
+	padding: 1rem 0.3rem;
+`
+const Logo = styled.p`
+	font-size: 40px;
+`
 export default function LayoutBasic({ children }) {
 	const { activeUser, setActiveUser } = useContext(UserContext)
 	const userKit = new UserKit()
@@ -74,7 +80,7 @@ export default function LayoutBasic({ children }) {
 		<AppWrapper>
 			<NavBar>
 				<NavLinks>
-					<a>Logo</a>
+					<p>Logo</p>
 					<div>
 						<Link to="/">Hem </Link>
 						<Link to="/login">Logga in</Link>
@@ -86,15 +92,24 @@ export default function LayoutBasic({ children }) {
 			</NavBar>
 			<MainWrapper>{children}</MainWrapper>
 			<Footer>
-				<p>Logo</p>
-				<p>Företagskollen AB</p>
+				<Logo>
+					<i class="fa fa-bug"></i>
+				</Logo>
+				<p>Mina företag AB</p>
 				<p>
-					<a href="mailto:magdalena.sjokvist@gmail.com">
-						magdalena.sjokvist@gmail.com
-					</a>
+					<i class="fa fa-map-marker"> </i> Klippgatan 8A, Solna
 				</p>
+
 				<p>
-					<a href="https://www.linkedin.com/in/magdalenasjokvist/">LinkedIn</a>
+					<SocialMediaSymbol href="mailto:magdalena.sjokvist@gmail.com">
+						<i class="fa fa-envelope-o"></i>
+					</SocialMediaSymbol>
+					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
+						<i class="fa fa-linkedin-square"></i>
+					</SocialMediaSymbol>
+					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
+						<i class="fa fa-facebook"></i>
+					</SocialMediaSymbol>
 				</p>
 			</Footer>
 		</AppWrapper>
