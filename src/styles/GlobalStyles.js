@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 h1 {
   font-size: 1.7rem;
   margin: 2vh 0 3vh 0;
+  text-align:center;
 }
 
 h2 {
@@ -65,36 +66,28 @@ th{
   text-align: left; */
 }
 
+table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 50vw;
+  min-width: 350px;
+}
+
 thead{
-  /* display: flex; */
-  /* flex-direction: row;
-  justify-content: space-between;
-  align-items: center; */
   background-color: #3B628C;
   color: white;
-  height: 40px;
-  width: 55vw;
-  min-width: 400px;
-  border-radius: 4px;
-  font-size: small;
-  padding: 1rem;
-  border: none;
+  height: 60px;
 }
 
 tr {
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; */
-  height: 30px;
-  width: 55vw;
-  min-width: 400px;
-  padding: 2rem 0rem 2rem 1rem;
+  height: 20px;
   font-size: small;
+  
 }
 
-
-td {
+th, td {
+  width: 120px;
+  padding: 0.3rem;
   font-size: smaller;
 }
 `
