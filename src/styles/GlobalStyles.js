@@ -38,6 +38,7 @@ button {
   max-width: 150px;
   margin-top: 0.8rem; 
   margin-bottom: 0.8rem;
+  margin-right: 0.4rem;
   font-size: 0.8rem;
   border: none;
   border-radius: 3px;
@@ -86,7 +87,7 @@ tr {
 }
 
 th, td {
-  width: 120px;
+  width: 80px;
   padding: 0.3rem;
   font-size: smaller;
 }
