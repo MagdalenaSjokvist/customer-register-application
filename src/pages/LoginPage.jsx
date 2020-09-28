@@ -17,7 +17,7 @@ const ActivateButton = styled.button`
 const LoginWrapper = styled.div`
 	width: 35vw;
 	min-width: 200px;
-	height: 100vh;
+	height: 45vh;
 `
 const InputLabel = styled.label`
 	display: flex;
@@ -59,6 +59,7 @@ export default function LoginPage() {
 				// console.log(loginEmail, loginPassword)
 				// console.log(data)
 				history.push("/home")
+				window.location.reload()
 			})
 	}
 
