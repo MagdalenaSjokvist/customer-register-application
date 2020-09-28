@@ -12,13 +12,21 @@ const CustomerDetailContainer = styled.div`
 	min-width: 350px;
 	padding: 2rem 3rem;
 `
+const UpdateCustomerForm = styled.div`
+	display: flex;
+	flex-direction: column;
+`
+const InputLabel = styled.label`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+	max-width: 700px;
+`
 
 export default function CustomerDetailPage(props) {
 	const customerId = props.match.params.id
 	const [customerDetails, setCustomerDetails] = useState("")
 	const history = useHistory()
-	const params = new URLSearchParams(history.location.search)
-
 	const userKit = new UserKit()
 
 	function handleGetCustomerDetails() {
@@ -44,7 +52,8 @@ export default function CustomerDetailPage(props) {
 
 	// function handleUpdateCustomer() {
 	// 	console.log("uppdatera kunduppgifter")
-	// 	console.log(customerDetails)
+	// 	console.log(customerDetails.vatNr)
+	// 	userKit.updateCustomer(customerId).then(userKit.getCustomerList())
 	// }
 
 	return (
@@ -88,6 +97,12 @@ export default function CustomerDetailPage(props) {
 				<button onClick={handleDeleteCustomer}>Ta bort</button>
 				{/* <button onClick={handleUpdateCustomer}>Redigera</button> */}
 			</CustomerDetailContainer>
+
+			{/* <UpdateCustomerForm>
+				<h3>Uppdatera kunduppgifter</h3>
+				{renderInputFields(inputFieldsArray)}
+				<button onClick={handleUpdateCustomer}>Uppdatera</button>
+			</UpdateCustomerForm> */}
 		</div>
 	)
 }

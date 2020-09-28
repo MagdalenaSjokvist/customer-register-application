@@ -116,6 +116,35 @@ export default class {
 		})
 	}
 
+	async updateCustomer(
+		customerId,
+		name,
+		organisationNr,
+		vatNr,
+		reference,
+		paymentTerm,
+		website,
+		email,
+		phoneNumber
+	) {
+		const url = `${API_URL}customers/${customerId}/`
+		const payload = {
+			name,
+			organisationNr,
+			vatNr,
+			reference,
+			paymentTerm,
+			website,
+			email,
+			phoneNumber,
+		}
+		return fetch(url, {
+			method: "PUT",
+			headers: this.getPrivateHeaders(),
+			body: JSON.stringify(payload),
+		})
+	}
+
 	setToken(token) {
 		localStorage.setItem("BUSINESS_TOKEN", token)
 	}
