@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
@@ -11,59 +11,69 @@ const AppWrapper = styled.div`
 	justify-content: center;
 	height: 100%;
 `
-
 const NavBar = styled.nav`
 	display: flex;
 	flex-direction: column;
-	padding: 1.5rem;
-	/* justify-content: space-between;
-	align-items: center; */
+	justify-content: center;
+	padding: 2rem;
 	background: #3b628c;
-	height: 100px;
+	height: 90px;
 	color: white;
-	font-size: 12px;
-	margin-bottom: 4vh;
 `
-const NavLinks = styled.div`
+const NavLoggedIn = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 1rem;
+	align-content: center;
 `
+const NavLoggedOut = styled(NavLoggedIn)``
 
-const NavUser = styled.div`
+const NavLink = styled.li`
+	display: inline-block;
+	list-style: none;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 1rem;
+`
+const ActiveUser = styled.p`
 	text-align: right;
+	font-size: 10px;
+	margin-bottom: 0.3rem;
 `
-
 const MainWrapper = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 3rem;
 `
-
 const Footer = styled.footer`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 180px;
+	height: 160px;
 	padding: 1rem;
 	margin-top: 10vh;
 	background: #3b628c;
 	color: white;
-	font-size: 12px;
+	font-size: 14px;
 `
-const SocialMediaSymbol = styled.a`
+const SocialMediaWrapper = styled.div`
+	margin-top: 0.5rem;
+`
+const SocialMediaLink = styled.a`
 	font-size: 24px;
-	padding: 1rem 0.3rem;
+	padding: 0.4rem;
 `
 const Logo = styled.p`
-	font-size: 40px;
+	font-size: 14px;
 `
+
 export default function LayoutBasic({ children }) {
 	const { activeUser, setActiveUser } = useContext(UserContext)
 	const userKit = new UserKit()
+	const token = userKit.getToken()
+	const history = useHistory()
 
 	function fetchActiveUser() {
 		userKit
@@ -76,41 +86,62 @@ export default function LayoutBasic({ children }) {
 		fetchActiveUser()
 	}, [])
 
+	function handleLogOut() {
+		userKit.deleteToken()
+		history.push("/")
+		window.location.reload()
+	}
+
 	return (
 		<AppWrapper>
 			<NavBar>
-				<NavLinks>
-					<p>Logo</p>
-					<div>
-						<Link to="/">Hem </Link>
-						<Link to="/login">Logga in</Link>
-					</div>
-				</NavLinks>
-				<NavUser>
-					<p>Inloggad som {activeUser.email}</p>
-				</NavUser>
+				{token && <ActiveUser>Inloggad som: {activeUser.email}</ActiveUser>}
+				{!token ? (
+					<NavLoggedOut>
+						<Logo>My business AB</Logo>
+						<ul>
+							<NavLink>
+								<Link to="/">HEM</Link>
+							</NavLink>
+							<NavLink>
+								<Link to="/login">LOGGA IN</Link>
+							</NavLink>
+						</ul>
+					</NavLoggedOut>
+				) : (
+					<NavLoggedIn>
+						<Logo>My business AB</Logo>
+						<ul>
+							<NavLink>
+								<Link to="/home">MINA KUNDER</Link>
+							</NavLink>
+							<NavLink>
+								<Link to="/" onClick={handleLogOut}>
+									LOGGA UT
+								</Link>
+							</NavLink>
+						</ul>
+					</NavLoggedIn>
+				)}
 			</NavBar>
 			<MainWrapper>{children}</MainWrapper>
 			<Footer>
-				<Logo>
-					<i className="fa fa-bug"></i>
-				</Logo>
-				<p>Mina företag AB</p>
+				<Logo>My business AB</Logo>
 				<p>
-					<i className="fa fa-map-marker"> </i> Klippgatan 8A, Solna
+					<i className="fa fa-map-marker"></i> Klippgatan 8A, Solna
 				</p>
 
-				<p>
-					<SocialMediaSymbol href="mailto:magdalena.sjokvist@gmail.com">
+				<SocialMediaWrapper>
+					<SocialMediaLink href="mailto:magdalena.sjokvist@gmail.com">
 						<i className="fa fa-envelope-o"></i>
-					</SocialMediaSymbol>
-					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
+					</SocialMediaLink>
+					<SocialMediaLink href="https://www.linkedin.com/in/magdalenasjokvist/">
 						<i className="fa fa-linkedin-square"></i>
-					</SocialMediaSymbol>
-					<SocialMediaSymbol href="https://www.linkedin.com/in/magdalenasjokvist/">
+					</SocialMediaLink>
+					<SocialMediaLink href="https://www.linkedin.com/in/magdalenasjokvist/">
 						<i className="fa fa-facebook"></i>
-					</SocialMediaSymbol>
-				</p>
+					</SocialMediaLink>
+				</SocialMediaWrapper>
 			</Footer>
 		</AppWrapper>
 	)
