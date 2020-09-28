@@ -13,9 +13,6 @@ const CustomerDetailContainer = styled.div`
 	padding: 2rem 3rem;
 `
 
-const CustomerDetailTable = styled.table`
-	margin-left: 10px;
-`
 export default function CustomerDetailPage(props) {
 	const customerId = props.match.params.id
 	const [customerDetails, setCustomerDetails] = useState("")
@@ -44,6 +41,11 @@ export default function CustomerDetailPage(props) {
 			.then(history.push("/home"))
 			.then(userKit.getCustomerList())
 	}
+
+	// function handleUpdateCustomer() {
+	// 	console.log("uppdatera kunduppgifter")
+	// 	console.log(customerDetails)
+	// }
 
 	return (
 		<div>
@@ -84,6 +86,7 @@ export default function CustomerDetailPage(props) {
 					</button>
 				</Link>
 				<button onClick={handleDeleteCustomer}>Ta bort</button>
+				{/* <button onClick={handleUpdateCustomer}>Redigera</button> */}
 			</CustomerDetailContainer>
 		</div>
 	)
