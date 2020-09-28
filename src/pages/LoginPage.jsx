@@ -3,6 +3,17 @@ import { useHistory } from "react-router-dom"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
 
+const ActivateWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`
+const ActivateButton = styled.button`
+	margin: 1.5rem;
+	height: 50px;
+	width: 50%;
+	max-width: 400px;
+`
 const LoginWrapper = styled.div`
 	width: 35vw;
 	min-width: 200px;
@@ -14,6 +25,7 @@ const InputLabel = styled.label`
 	margin-bottom: 5px;
 	width: 100%;
 `
+
 export default function LoginPage() {
 	const history = useHistory()
 	const urlParameters = new URLSearchParams(history.location.search) // Use URL Search Params to parse the query parameters from the url
@@ -54,13 +66,15 @@ export default function LoginPage() {
 		<div>
 			{/* Om uid och token finns - rendera ut första diven, annars rendera ut den andra diven */}
 			{uid && token ? (
-				<div>
+				<ActivateWrapper>
 					<h1>Aktivera ditt konto</h1>
 					<p>
 						Klicka på knappen nedan för att aktivera ditt konto och logga in.
 					</p>
-					<button onClick={handleActivateAccount}>Aktivera ditt konto</button>
-				</div>
+					<ActivateButton onClick={handleActivateAccount}>
+						Aktivera ditt konto
+					</ActivateButton>
+				</ActivateWrapper>
 			) : (
 				<LoginWrapper>
 					<h1>Logga in</h1>
