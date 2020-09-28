@@ -87,7 +87,7 @@ export default function LayoutBasic({ children }) {
 					</div>
 				</NavLinks>
 				<NavUser>
-					<p>{activeUser.email}</p>
+					<p>Inloggad som {activeUser.email}</p>
 				</NavUser>
 			</NavBar>
 			<MainWrapper>{children}</MainWrapper>

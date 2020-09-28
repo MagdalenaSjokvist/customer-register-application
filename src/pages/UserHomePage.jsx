@@ -125,6 +125,7 @@ export default function UserHomePage() {
 				setEmail(""),
 				setPhoneNumber("")
 			)
+			.then(window.location.reload())
 	}
 
 	//TA BORT KUND
