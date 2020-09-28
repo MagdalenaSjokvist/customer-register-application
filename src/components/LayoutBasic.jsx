@@ -88,7 +88,7 @@ export default function LayoutBasic({ children }) {
 
 	function handleLogOut() {
 		userKit.deleteToken()
-		history.push("/")
+		history.push("/login")
 		window.location.reload()
 	}
 
@@ -116,7 +116,7 @@ export default function LayoutBasic({ children }) {
 								<Link to="/home">MINA KUNDER</Link>
 							</NavLink>
 							<NavLink>
-								<Link to="/" onClick={handleLogOut}>
+								<Link to="/login" onClick={handleLogOut}>
 									LOGGA UT
 								</Link>
 							</NavLink>
