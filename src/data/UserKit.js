@@ -117,22 +117,16 @@ export default class {
 	}
 
 	setToken(token) {
-		localStorage.setItem("USER_TOKEN", token)
+		localStorage.setItem("BUSINESS_TOKEN", token)
 	}
 
 	getToken() {
-		return localStorage.getItem("USER_TOKEN")
+		return localStorage.getItem("BUSINESS_TOKEN")
 	}
 
-	// async addCustomer() {
-	//   const url = `${ROOT_URL}api/v1/customers`
-	//   const payload = {
-	//     name: Katarina Svensson,
-	//     adress: [{
-	//       {organisation: 1}
-	//     }]
-	//   }
-	// }
+	deleteToken() {
+		localStorage.removeItem("BUSINESS_TOKEN")
+	}
 
 	//Genom att skriva ut header (Content-Type) med en funktion minskar risken att vi skriver fel (om vi skriver fler det gånger)
 	getPublicHeaders() {

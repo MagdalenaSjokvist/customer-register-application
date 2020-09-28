@@ -83,9 +83,7 @@ export default function CustomerDetailPage(props) {
 						<i className="fa fa-angle-double-left"></i> Tillbaka
 					</button>
 				</Link>
-				<button onClick={handleDeleteCustomer}>
-					Radera kund <i className="fa fa-trash-o"></i>
-				</button>
+				<button onClick={handleDeleteCustomer}>Ta bort</button>
 			</CustomerDetailContainer>
 		</div>
 	)
