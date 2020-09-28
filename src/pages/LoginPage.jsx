@@ -56,8 +56,6 @@ export default function LoginPage() {
 			.then((res) => res.json())
 			.then((data) => {
 				userKit.setToken(data.token)
-				// console.log(loginEmail, loginPassword)
-				// console.log(data)
 				history.push("/home")
 				window.location.reload()
 			})
@@ -73,7 +71,7 @@ export default function LoginPage() {
 						Klicka på knappen nedan för att aktivera ditt konto och logga in.
 					</p>
 					<ActivateButton onClick={handleActivateAccount}>
-						Aktivera ditt konto
+						Aktivera ditt konto nu <i className="	fa fa-check"></i>
 					</ActivateButton>
 				</ActivateWrapper>
 			) : (
