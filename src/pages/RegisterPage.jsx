@@ -21,7 +21,6 @@ export default function RegisterPage() {
 	const [password, setPassword] = useState("")
 	const [organisationName, setOrganisationName] = useState("")
 	const [organisationKind, setOrganisationKind] = useState("")
-	const [confirmationMessage, setConfirmationMessage] = useState("")
 	const userKit = new UserKit()
 
 	//RENDERA UT INPUTFÄLT FÖR REGISTRERING
@@ -70,11 +69,6 @@ export default function RegisterPage() {
 				organisationKind
 			)
 			.then(
-				setConfirmationMessage(
-					"Tack för din registrering! Du får strax ett mejl till din registrerade e-postadress. Klicka på länken i mejlet för att aktivera ditt konto."
-				)
-			)
-			.then(
 				setFirstName(""),
 				setLastName(""),
 				setEmail(""),
@@ -82,14 +76,17 @@ export default function RegisterPage() {
 				setOrganisationName(""),
 				setOrganisationKind("")
 			)
-		// .then(history.push("/login"))
+			.then(
+				alert(
+					"Tack för din registrering! Du får strax ett bekräftelsemejl med en länk. Klicka på länken för att aktivera ditt konto."
+				)
+			)
 	}
 
 	return (
 		<div>
 			<h1>Registrera dig</h1>
 			<RegisterForm>
-				<p>{confirmationMessage}</p>
 				{renderInputFields(inputFieldsArray)}
 				<button onClick={handleRegisterAccount}>Registrera dig</button>
 			</RegisterForm>
