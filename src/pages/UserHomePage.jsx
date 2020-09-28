@@ -22,8 +22,7 @@ const CustomersContainer = styled.div`
 `
 
 const CustomerButton = styled.button`
-	margin: 5px;
-	width: 80px;
+	width: 100%;
 `
 
 export default function UserHomePage() {
@@ -128,12 +127,6 @@ export default function UserHomePage() {
 			.then(window.location.reload())
 	}
 
-	//TA BORT KUND
-	function handleDeleteCustomer() {
-		console.log("Delete customer")
-		handleGetCustomerList()
-	}
-
 	return (
 		<div>
 			<h2>
@@ -165,9 +158,6 @@ export default function UserHomePage() {
 													Mer info <i className="fa fa-angle-double-right"></i>
 												</CustomerButton>
 											</Link>
-											{/* <CustomerButton onClick={handleDeleteCustomer}>
-												<i className="fa fa-trash-o"></i>
-											</CustomerButton> */}
 										</td>
 									</tr>
 								)

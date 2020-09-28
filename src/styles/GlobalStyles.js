@@ -34,6 +34,7 @@ a {
 }
 
 button {
+  cursor: pointer;
   padding: 0.5rem;
   max-width: 150px;
   margin-top: 0.8rem; 
@@ -70,7 +71,7 @@ th{
 table {
   border-collapse: collapse;
   text-align: left;
-  width: 50vw;
+  width: 40vw;
   min-width: 350px;
 }
 
