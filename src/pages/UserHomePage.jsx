@@ -38,7 +38,6 @@ export default function UserHomePage() {
 	const [website, setWebsite] = useState("")
 	const [email, setEmail] = useState("")
 	const [phoneNumber, setPhoneNumber] = useState("")
-	// const [confirmationMessage, setConfirmationMessage] = useState("")
 
 	//Skapa ny instans av klassen UserKit
 	const userKit = new UserKit()
@@ -154,7 +153,6 @@ export default function UserHomePage() {
 										<td>
 											<Link to={`/customer/${customerItem.id}`}>
 												<CustomerButton>
-													{/* <i className="fa fa-info-circle"></i> Läs mer */}
 													Mer info <i className="fa fa-angle-double-right"></i>
 												</CustomerButton>
 											</Link>

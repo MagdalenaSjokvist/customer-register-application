@@ -63,11 +63,6 @@ input {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
-th{
-  /* padding-right: 3rem;
-  text-align: left; */
-}
-
 table {
   border-collapse: collapse;
   text-align: left;
