@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import UserKit from "../data/UserKit"
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
 
 const CreateCustomerForm = styled.div`
@@ -28,6 +28,7 @@ const CustomerButton = styled.button`
 export default function UserHomePage() {
 	const { activeUser } = useContext(UserContext)
 	const [customerList, setCustomerList] = useState("")
+	const history = useHistory()
 
 	//State variables for creating new customer
 	const [name, setName] = useState("")
@@ -124,6 +125,7 @@ export default function UserHomePage() {
 				setPhoneNumber("")
 			)
 			.then(window.location.reload())
+			.then(history.push("/home"))
 	}
 
 	return (
@@ -133,35 +135,40 @@ export default function UserHomePage() {
 			</h2>
 			<CustomersContainer>
 				<h3>Mina kunder</h3>
-				<table>
-					<thead>
-						<tr>
-							<th>Namn</th>
-							<th>Org.nr</th>
-							<th>Referens</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						{customerList &&
-							customerList.map((customerItem, index) => {
-								return (
-									<tr key={index}>
-										<td>{customerItem.name}</td>
-										<td>{customerItem.organisationNr}</td>
-										<td>{customerItem.reference}</td>
-										<td>
-											<Link to={`/customer/${customerItem.id}`}>
-												<CustomerButton>
-													Mer info <i className="fa fa-angle-double-right"></i>
-												</CustomerButton>
-											</Link>
-										</td>
-									</tr>
-								)
-							})}
-					</tbody>
-				</table>
+				{customerList == "" ? (
+					<p>Du har inte lagt till några kunder än.</p>
+				) : (
+					<table>
+						<thead>
+							<tr>
+								<th>Namn</th>
+								<th>Org.nr</th>
+								<th>Referens</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{customerList &&
+								customerList.map((customerItem, index) => {
+									return (
+										<tr key={index}>
+											<td>{customerItem.name}</td>
+											<td>{customerItem.organisationNr}</td>
+											<td>{customerItem.reference}</td>
+											<td>
+												<Link to={`/customer/${customerItem.id}`}>
+													<CustomerButton>
+														Mer info{" "}
+														<i className="fa fa-angle-double-right"></i>
+													</CustomerButton>
+												</Link>
+											</td>
+										</tr>
+									)
+								})}
+						</tbody>
+					</table>
+				)}
 			</CustomersContainer>
 			<CreateCustomerForm>
 				<h3>Lägg till en ny kund</h3>

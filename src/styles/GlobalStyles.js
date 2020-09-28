@@ -28,6 +28,10 @@ h3 {
 
 }
 
+p {
+  font-size: 12px;
+}
+
 a {
   text-decoration: none;
   color: white;
