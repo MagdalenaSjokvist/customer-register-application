@@ -15,7 +15,7 @@ const NavBar = styled.nav`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 2rem;
+	padding: 2.5rem;
 	background: #3b628c;
 	height: 90px;
 	color: white;
@@ -33,7 +33,7 @@ const NavLink = styled.li`
 	list-style: none;
 	font-size: 16px;
 	font-weight: bold;
-	padding-left: 1rem;
+	padding-left: 1.8rem;
 `
 const ActiveUser = styled.p`
 	text-align: right;
